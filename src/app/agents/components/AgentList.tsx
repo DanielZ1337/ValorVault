@@ -11,12 +11,25 @@ export function sleep(ms = 2000): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function shuffle(array: any[]) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+
 export default async function AgentList() {
 
     const agents: agentType[] = await axios.get('https://valorant-api.com/v1/agents?isPlayableCharacter=true')
         .then(res => {
             return sleep(1000).then(() => {
-                return res.data.data
+                return shuffle(res.data.data)
             })
         })
         .catch(err => {
