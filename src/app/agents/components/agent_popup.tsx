@@ -6,7 +6,7 @@ import {useAgentContext} from "@/app/agents/context/agentContext";
 import Spin from "@/app/logos-icons/spin";
 import AgentComp from "@/app/agents/components/agentComp";
 import {useSearchParams} from "next/navigation";
-import Leftarrow from "@/app/logos-icons/leftarrow";
+import LeftArrow from "@/app/logos-icons/leftarrow";
 
 export default function AgentPopUp() {
     const {agentActive, setAgentActive, agentId, setAgentId} = useAgentContext();
@@ -45,7 +45,8 @@ export default function AgentPopUp() {
                                         fallback={<div
                                             className={"flex justify-center items-center mx-auto inset-0 p-10"}>
                                             <Spin/></div>}>
-                                        <button className={"rounded-full p-1 hover:bg-white/20"}><Leftarrow stroke={"white"}/></button>
+                                        <button className={"rounded-full p-1 hover:bg-white/20"}><LeftArrow
+                                            stroke={"white"}/></button>
                                         <Dialog.Panel
                                             className={"mx-auto grid grid-cols-2 overflow-hidden"}>
                                             {/*@ts-ignore*/}

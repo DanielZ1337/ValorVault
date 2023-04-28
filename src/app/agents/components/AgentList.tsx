@@ -12,7 +12,7 @@ export function sleep(ms = 2000): Promise<void> {
 }
 
 function shuffle(array: any[]) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
     while (currentIndex != 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
@@ -28,9 +28,9 @@ export default async function AgentList() {
 
     const agents: agentType[] = await axios.get('https://valorant-api.com/v1/agents?isPlayableCharacter=true')
         .then(res => {
-            return sleep(1000).then(() => {
-                return shuffle(res.data.data)
-            })
+            // return sleep(1000).then(() => {
+            return shuffle(res.data.data)
+            // })
         })
         .catch(err => {
             // console.log(err)
@@ -49,10 +49,13 @@ export default async function AgentList() {
                         className={"grid xl:grid-cols-3 md:grid-cols-2 2xl:grid-cols-5 4xl:grid-cols-6 5xl:grid-cols-7 gap-6"}>
                         {agents.map(agent => (
                             <div className={"hover:scale-105 transition delay-300 duration-700"} key={agent.uuid}>
-                            <AgentWrapper key={agent.uuid} agent_id={agent.uuid}>
-                                {/*@ts-ignore*/}
-                                <Agent agent={agent} key={agent.uuid}/>
-                            </AgentWrapper></div>
+                                <AgentWrapper key={agent.uuid} agent_id={agent.uuid}>
+                                    <Suspense fallback={<Spin/>}>
+                                        {/*@ts-ignore*/}
+                                        <Agent agent={agent} key={agent.uuid}/>
+                                    </Suspense>
+                                </AgentWrapper>
+                            </div>
                         ))}
                     </div>) : <div className={"flex items-center justify-center"}><Spin/></div>}
             </Suspense>
