@@ -76,7 +76,14 @@ export default function PlayerCardPage() {
                             <div className={"fixed inset-0 flex items-center justify-center bg-black/75"}>
                                 <div
                                     className={"inset-0 bg-primary transition-opacity w-fit h-fit p-8 shadow-xl rounded-[1rem] drop-shadow-[0px_0px_15px_rgba(255,63,63,0.25)]"}>
-                                    <button className={"p-4 shadow-xl bg-white dark:bg-palette-black rounded-lg"}
+                                    <h1 className={"text-3xl text-center text-white font-bold mb-4"}>Invalid username or
+                                        tag</h1>
+                                    <p>
+                                        Please make sure you entered your username and tag correctly.
+                                        <br/>
+                                        Like this: {"\"danielz#1337\""}
+                                    </p>
+                                    <button className={"p-4 shadow-xl bg-white dark:bg-palette-black rounded-lg w-full mt-4 text-center text-black dark:text-white font-bold text-xl hover:bg-opacity-90 transition-all duration-300 ease-in-out"}
                                             onClick={() => setIsOpen(false)}>
                                         I understand
                                     </button>
