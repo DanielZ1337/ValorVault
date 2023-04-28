@@ -18,9 +18,11 @@ export default function ThemeSwitcher() {
     }
     return (
         <>
-            <button className={"p-4 dark:bg-black shadow-xl rounded-lg m-4 dark:text-white dark:hover:bg-[#00001f] hover:bg-[#fffff0] text-black bg-white"} onClick={() => {
-                theme === 'light' ? setTheme('dark') : setTheme('light')
-            }}>{theme === 'light' ? <Sun/> : <Moon/>}</button>
+            <button
+                className={"active:scale-110 active:ease-linear transition ease-in-out delay-[25] p-3 dark:bg-black shadow-xl rounded-lg dark:text-white dark:hover:bg-[#00001f] hover:bg-[#fffff0] text-black bg-white"}
+                onClick={() => {
+                    theme === 'light' ? setTheme('dark') : setTheme('light')
+                }}>{theme === 'light' ? <Sun/> : <Moon/>}</button>
         </>
     )
 }
