@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <header
-            className="bg-primary text-white dark:text-palette-black dark:bg-primary-550 text-center p-4 top-0 inset-x-0 w-full flex outline-1 outline items-center justify-between sticky">
+            className="overflow-x-auto bg-primary text-white dark:text-palette-black dark:bg-primary-550 text-center p-4 top-0 inset-x-0 w-full flex outline-1 outline items-center justify-between sticky">
             <Link href={"/"} className={"-ml-8"}><BannerNoText fill={"fill-white"} height={"50pt"}
                                                                width={"250pt"}/></Link>
             <nav className={"flex justify-center items-center gap-4 text-lg"}>
