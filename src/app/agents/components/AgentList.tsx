@@ -23,7 +23,6 @@ function shuffle(array: any[]) {
     return array;
 }
 
-
 export default async function AgentList() {
 
     const agents: agentType[] = await axios.get('https://valorant-api.com/v1/agents?isPlayableCharacter=true')

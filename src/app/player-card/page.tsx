@@ -9,11 +9,11 @@ export default function PlayerCardPage() {
     const [profile, setProfile] = useState<string>("")
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [valid, setValid] = useState<boolean>(false)
-    const regex: RegExp = useMemo(() => /^([A-z0-9_-]+)#([A-z0-9]{4})$/gm, []);
+    const regex: RegExp = useMemo(() => /^([A-z0-9_-]+)#([A-z0-9]{1,4})$/gm, []);
     const [username, setUserName] = useState("")
     const [tag, setTag] = useState("")
 
-    async function handleSubmit() {
+    function handleSubmit() {
         if (profile.match(regex) !== null) {
             const match = regex.exec(profile)
             if (match !== null) {
@@ -50,7 +50,7 @@ export default function PlayerCardPage() {
                         if (e.key === "Enter") {
                             if (valid) {
                                 setIsOpen(false)
-                                await handleSubmit().catch((e) => console.log(e))
+                                handleSubmit()
                             } else {
                                 setIsOpen(true)
                             }

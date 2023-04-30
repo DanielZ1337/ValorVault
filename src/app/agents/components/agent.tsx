@@ -6,11 +6,11 @@ import Spin from "@/app/logos-icons/spin";
 export default async function Agent({agent}: { agent: Agent }) {
     return (
         <Suspense fallback={<Spin/>}>
-            <div key={agent.uuid} className={"p-4 shadow-xl border-primary border hover:animate-wiggle"}>
-                <h1 className={"text-2xl"}>{agent.displayName}</h1>
+            <div key={agent.uuid} className={"group p-4 rounded-lg shadow-xl dark:shadow-palette-pink/50 dark:shadow-md border-primary border hover:animate-wiggle"}>
+                <h1 className={"text-2xl drop-shadow-xl pb-2 group-hover:text-palette"}>{agent.displayName}</h1>
                 <div className={"flex justify-center items-center"}>
                     <Suspense fallback={<Spin/>}>
-                        <Image src={agent.displayIcon} alt={agent.displayName} width={200} height={200}/>
+                        <Image className={"drop-shadow-2xl rounded"} src={agent.displayIcon} alt={agent.displayName} width={200} height={200}/>
                     </Suspense>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useEffect, useState} from "react";
 
 interface IAgentContext {
     agentId: string | null,
