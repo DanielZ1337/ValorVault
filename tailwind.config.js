@@ -56,7 +56,7 @@ module.exports = {
                 'spinner': {
                     '100%': {transform: 'rotate(360deg)'},
                 },
-                wiggle: {
+                'wiggle': {
                     '0%': { transform: 'rotate(0deg)', transition: 'all 2s ease-in' },
                     '33%': { transform: 'rotate(1deg)',  transition: 'all 2s ease-in-out' },
                     '66%': { transform: 'rotate(-3deg)', transition: 'all 2s ease-in-out' },
@@ -66,7 +66,7 @@ module.exports = {
             animation: {
                 'agent-bounce': 'agent-bouncing 3s ease-in-out infinite',
                 'loading-spin': 'spinner 0.75s infinite linear',
-                wiggle: 'wiggle 2s ease-in-out infinite',
+                'wiggle': 'wiggle 2s ease-in-out infinite',
             }
         },
     },
