@@ -49,8 +49,12 @@ export default function Footer() {
         // {name: "Twitch", href: "", icon: <BsTwitch size={"3.125rem"}/>},
     ]
 
-    function CopyDiscord() {
-        navigator.clipboard.writeText("Даниелз#3144").then(() => setCopyDiscordClicked(true))
+    async function CopyDiscord(text: string) {
+        try {
+            await window.navigator.clipboard.writeText(text).then(() => setCopyDiscordClicked(true))
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     useEffect(() => {
@@ -85,10 +89,10 @@ export default function Footer() {
                     link.name === "Discord" || link.name === "Email" ? (
                         <button
                             className={"text-neutral-100 hover:text-palette-black w-16 h-16 p-1 flex items-center justify-center"}
-                            key={link.href} onClick={() => {
+                            key={link.href} onClick={async () => {
                             if (link.name === "Email") window.open(link.href)
                             if (link.name === "Discord") {
-                                CopyDiscord()
+                                await CopyDiscord("Даниелз#3144")
                             }
                         }}>{link.icon}</button>
                     ) : (

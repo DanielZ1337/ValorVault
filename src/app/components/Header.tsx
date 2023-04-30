@@ -26,7 +26,9 @@ export default function Header() {
             <nav className={"flex justify-center items-center gap-4 text-lg"}>
                 {links.slice(1, links.length).map((link) => (
                     <Link key={link.label} href={link.href}
-                          className={`p-2 rounded-md shadow-2xl ${pathname.includes(link.href) ? "text-xl text-palette-black dark:bg-palette-black dark:text-white bg-white" : "bg-palette-black dark:bg-white"}`}>{link.label}</Link>
+                          className={`group p-2 rounded-md shadow-2xl ${pathname.includes(link.href) ? "text-xl text-palette-black dark:bg-palette-black dark:text-white bg-white" : "bg-palette-black dark:bg-white"}`}>
+                        <p className={"relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-primary before:group-hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-300"}>{link.label}</p>
+                    </Link>
                 ))}
                 <ThemeSwitcher/>
             </nav>
