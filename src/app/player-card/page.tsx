@@ -83,8 +83,9 @@ export default function PlayerCardPage() {
                                         <br/>
                                         Like this: {"\"danielz#1337\""}
                                     </p>
-                                    <button className={"p-4 shadow-xl bg-white dark:bg-palette-black rounded-lg w-full mt-4 text-center text-black dark:text-white font-bold text-xl hover:bg-opacity-90 transition-all duration-300 ease-in-out"}
-                                            onClick={() => setIsOpen(false)}>
+                                    <button
+                                        className={"p-4 shadow-xl bg-white dark:bg-palette-black rounded-lg w-full mt-4 text-center text-black dark:text-white font-bold text-xl hover:bg-opacity-90 transition-all duration-300 ease-in-out"}
+                                        onClick={() => setIsOpen(false)}>
                                         I understand
                                     </button>
                                 </div>

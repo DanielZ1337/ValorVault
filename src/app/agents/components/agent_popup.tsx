@@ -46,11 +46,12 @@ export default function AgentPopUp() {
                                         className={"fill-white"}/></div>}>
                                         <Dialog.Panel
                                             className={"mx-auto"}>
-                                            <button className={"rounded-full p-1 -mt-5 md:-mt-4 hover:bg-white/20 z-[100]"}
-                                                    onClick={() => {
-                                                        setAgentActive(false)
-                                                        setAgentId(null)
-                                                    }}><LeftArrow stroke={"white"}/></button>
+                                            <button
+                                                className={"rounded-full p-1 -mt-5 md:-mt-4 hover:bg-white/20 z-[100]"}
+                                                onClick={() => {
+                                                    setAgentActive(false)
+                                                    setAgentId(null)
+                                                }}><LeftArrow stroke={"white"}/></button>
                                             {/*@ts-ignore*/}
                                             <AgentComp/>
                                         </Dialog.Panel>

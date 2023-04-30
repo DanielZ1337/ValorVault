@@ -20,8 +20,7 @@ export default async function AgentList() {
             return shuffle(res.data.data)
             // })
         })
-        .catch(err => {
-            // console.log(err)
+        .catch(() => {
             redirect('/agents')
         });
 

@@ -1,7 +1,8 @@
-export default function BannerNoText({fill, width, height}: { fill: string, width?:string, height?:string }) {
+export default function BannerNoText({fill, width, height}: { fill: string, width?: string, height?: string }) {
     return (
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-             width={`${width ? width : "1281.000000pt"}`} height={`${height ? height : "109.000000pt"}`} viewBox="0 0 1281.000000 109.000000"
+             width={`${width ? width : "1281.000000pt"}`} height={`${height ? height : "109.000000pt"}`}
+             viewBox="0 0 1281.000000 109.000000"
              preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,109.000000) scale(0.100000,-0.100000)"
                className={fill} stroke="none">

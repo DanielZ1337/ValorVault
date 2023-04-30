@@ -4,25 +4,53 @@ import BannerNoText from "@/app/logos-icons/banner_no_text";
 import Link from "next/link";
 import SuccessToast from "@/app/components/success_toast";
 import {BsDiscord, BsFillEnvelopeFill, BsGithub, BsInstagram, BsSteam, BsTwitter, BsYoutube} from "react-icons/bs";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Transition} from "@headlessui/react";
-import {shuffle} from "@/app/hooks/getShuffledArray";
 
 export default function Footer() {
     const [CopyDiscordClicked, setCopyDiscordClicked] = useState(false);
 
     const links: { name: string, href: string, icon: React.ReactElement }[] = [
-        {name: "GitHub", href: "https://github.com/DanielZ1337/ValorVault", icon: <BsGithub className={"w-full h-full"}/>},
-        {name: "Twitter", href: "https://twitter.com/DanielZ1337", icon: <BsTwitter className={"w-full h-full"}/>},
-        {name: "Discord", href: "", icon: <BsDiscord className={"w-full h-full"}/>},
-        {name: "Instagram", href: "https://www.instagram.com/danielz1337/", icon: <BsInstagram className={"w-full h-full"}/>},
-        {name: "YouTube", href: "https://www.youtube.com/danielz1337tm", icon: <BsYoutube className={"w-full h-full"}/>},
-        {name: "Email", href: "mailto:danielz2nd@hotmail.com", icon: <BsFillEnvelopeFill className={"w-full h-full"}/>},
-        {name: "Steam", href: "https://steamcommunity.com/id/danielz1337/", icon: <BsSteam className={"w-full h-full"}/>},
+        {
+            name: "GitHub",
+            href: "https://github.com/DanielZ1337/ValorVault",
+            icon: <BsGithub className={"w-full h-full"}/>
+        },
+        {
+            name: "Twitter",
+            href: "https://twitter.com/DanielZ1337",
+            icon: <BsTwitter className={"w-full h-full"}/>
+        },
+        {
+            name: "Discord",
+            href: "",
+            icon: <BsDiscord className={"w-full h-full"}/>
+        },
+        {
+            name: "Instagram",
+            href: "https://www.instagram.com/danielz1337/",
+            icon: <BsInstagram className={"w-full h-full"}/>
+        },
+        {
+            name: "YouTube",
+            href: "https://www.youtube.com/danielz1337tm",
+            icon: <BsYoutube className={"w-full h-full"}/>
+        },
+        {
+            name: "Email",
+            href: "mailto:danielz2nd@hotmail.com",
+            icon: <BsFillEnvelopeFill className={"w-full h-full"}/>
+        },
+        {
+            name: "Steam",
+            href: "https://steamcommunity.com/id/danielz1337/",
+            icon: <BsSteam className={"w-full h-full"}/>
+        },
         // {name: "Twitch", href: "", icon: <BsTwitch size={"3.125rem"}/>},
     ]
+
     function CopyDiscord() {
-        navigator.clipboard.writeText("Даниелз#3144")
+        navigator.clipboard.writeText("Даниелз#3144").then(() => setCopyDiscordClicked(true))
     }
 
     useEffect(() => {
@@ -61,8 +89,8 @@ export default function Footer() {
                             if (link.name === "Email") window.open(link.href)
                             if (link.name === "Discord") {
                                 CopyDiscord()
-                                setCopyDiscordClicked(true)
-                            }}}>{link.icon}</button>
+                            }
+                        }}>{link.icon}</button>
                     ) : (
                         <Link href={link.href} key={link.name}
                               className={"text-neutral-100 hover:text-palette-black w-16 h-16 p-1 flex items-center justify-center"}
