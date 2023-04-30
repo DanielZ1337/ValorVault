@@ -23,3 +23,5 @@ To run this website, you need to have Node.js and npm installed on your system. 
 - [axios](https://axios-http.com/)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [headlessui](https://headlessui.com/)
