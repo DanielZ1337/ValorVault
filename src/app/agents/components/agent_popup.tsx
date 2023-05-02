@@ -5,27 +5,22 @@ import React, {Fragment, Suspense, useMemo} from "react";
 import {useAgentContext} from "@/app/agents/context/agentContext";
 import Spin from "@/app/logos-icons/spin";
 import AgentComp from "@/app/agents/components/agentComp";
-import {useSearchParams} from "next/navigation";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import LeftArrow from "@/app/logos-icons/leftarrow";
 
 export default function AgentPopUp() {
     const {agentActive, setAgentActive, agentId, setAgentId} = useAgentContext();
 
-    const agentIdSearchParams: string | null = useSearchParams().get('id');
-
-    useMemo(() => {
-        if (agentIdSearchParams) {
-            setAgentActive(true);
-            setAgentId(agentIdSearchParams);
-        }
-    }, [agentIdSearchParams, setAgentActive, setAgentId]);
+    const router = useRouter();
+    const pathname = usePathname();
 
     return (
         <>
-            <Transition appear show={agentActive && agentId !== null} as={Fragment}>
+            <Transition appear show={agentActive && agentId !== null && pathname.includes(agentId)} as={Fragment}>
                 <Dialog onClose={() => {
                     setAgentActive(false)
                     setAgentId(null)
+                    router.back()
                 }}
                         className={"relative z-50"}>
                     <Transition.Child
@@ -51,6 +46,7 @@ export default function AgentPopUp() {
                                                 onClick={() => {
                                                     setAgentActive(false)
                                                     setAgentId(null)
+                                                    router.back()
                                                 }}><LeftArrow stroke={"white"}/></button>
                                             {/*@ts-ignore*/}
                                             <AgentComp/>

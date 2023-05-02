@@ -46,7 +46,7 @@ export default function Footer() {
             href: "https://steamcommunity.com/id/danielz1337/",
             icon: <BsSteam className={"w-full h-full"}/>
         },
-        // {name: "Twitch", href: "", icon: <BsTwitch size={"3.125rem"}/>},
+        // {name: "Twitch", href: "", icon: <BsTwitch className={"w-full h-full"}/>},
     ]
 
     async function CopyDiscord(text: string) {

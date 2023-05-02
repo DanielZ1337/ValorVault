@@ -11,12 +11,9 @@ interface IAgentContext {
 
 const AgentContext = createContext<IAgentContext>({
     agentId: null,
-    setAgentId: () => {
-    },
+    setAgentId: () => {},
     agentActive: false,
-    setAgentActive: () => {
-
-    }
+    setAgentActive: () => {}
 });
 
 const AgentProvider = ({children}: { children: React.ReactNode }) => {

@@ -6,6 +6,7 @@ import {Suspense} from "react";
 import AgentWrapper from "@/app/agents/components/agent_wrapper";
 import {redirect} from "next/navigation";
 import {shuffle} from "@/app/hooks/getShuffledArray";
+import Link from "next/link";
 
 export function sleep(ms = 2000): Promise<void> {
     console.log('Kindly remember to remove `sleep`');
@@ -35,14 +36,16 @@ export default async function AgentList() {
                     (<div
                         className={"grid xl:grid-cols-3 md:grid-cols-2 2xl:grid-cols-5 4xl:grid-cols-6 5xl:grid-cols-7 gap-6"}>
                         {agents.map(agent => (
-                            <div className={"hover:scale-105 transition delay-300 duration-700"} key={agent.uuid}>
-                                <AgentWrapper key={agent.uuid} agent_id={agent.uuid}>
-                                    <Suspense fallback={<Spin/>}>
-                                        {/*@ts-ignore*/}
-                                        <Agent agent={agent} key={agent.uuid}/>
-                                    </Suspense>
-                                </AgentWrapper>
-                            </div>
+                            <Link href={`/agents/${agent.uuid}`} key={agent.uuid}>
+                                <div className={"hover:scale-105 transition delay-300 duration-700"} key={agent.uuid}>
+                                    <AgentWrapper key={agent.uuid} agent_id={agent.uuid}>
+                                        <Suspense fallback={<Spin/>}>
+                                            {/*@ts-ignore*/}
+                                            <Agent agent={agent} key={agent.uuid}/>
+                                        </Suspense>
+                                    </AgentWrapper>
+                                </div>
+                            </Link>
                         ))}
                     </div>) : <div className={"flex items-center justify-center"}><Spin/></div>}
             </Suspense>

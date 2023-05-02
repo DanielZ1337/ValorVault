@@ -1,19 +1,25 @@
 'use client';
 
 import {Dialog, Transition} from "@headlessui/react";
-import React, {Fragment, Suspense} from "react";
+import React, {Fragment, Suspense, useMemo} from "react";
 import Spin from "@/app/logos-icons/spin";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import LeftArrow from "@/app/logos-icons/leftarrow";
+import {useWeaponContext} from "@/app/weapons/context/weaponContext";
 
-export default async function WeaponPopUp({children}: { children: React.ReactNode }) {
+export default function WeaponPopUp({children}: { children: React.ReactNode }) {
+    
+    const {weaponActive, setWeaponActive, weaponId, setWeaponId} = useWeaponContext();
 
     const router = useRouter()
+    const pathname = usePathname()
 
     return (
         <>
-            <Transition appear show={true} as={Fragment}>
+            <Transition appear show={weaponActive && weaponId !== null && pathname.includes(weaponId)} as={Fragment}>
                 <Dialog onClose={() => {
+                    setWeaponActive(false)
+                    setWeaponId(null)
                     router.back()
                 }}
                         className={"relative z-50"}>
@@ -36,6 +42,8 @@ export default async function WeaponPopUp({children}: { children: React.ReactNod
                                         className={"mx-auto"}>
                                         <button className={"rounded-full p-1 -mt-5 md:-mt-4 hover:bg-white/20 z-[100]"}
                                                 onClick={() => {
+                                                    setWeaponActive(false)
+                                                    setWeaponId(null)
                                                     router.back()
                                                 }}><LeftArrow stroke={"white"}/></button>
                                         {children}
